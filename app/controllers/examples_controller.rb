@@ -5,7 +5,8 @@ class ExamplesController < OpenReadController
   # GET /examples
   # GET /examples.json
   def index
-    @examples = Example.all
+    # @examples = Example.all
+    @examples = current_user.examples.all
 
     render json: @examples
   end
@@ -48,10 +49,16 @@ class ExamplesController < OpenReadController
 
   def set_example
     @example = current_user.examples.find(params[:id])
+    # If @example returns something you found an example for the current_user
+    # If @example returns a 404 Not Found then you didn't find it for
+    #   current_user
+    # WAS @example = Example.find(params[:id])
   end
 
   def example_params
-    params.require(:example).permit(:text)
+    # params.require(:example).permit(:text)
+    # Use
+    params.require(:example).permit(:user_id, :sport: ....)
   end
 
   private :set_example, :example_params

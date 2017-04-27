@@ -1,0 +1,2 @@
+class FavoritePlayer < ApplicationRecord
+end
