@@ -1,11 +1,18 @@
 # frozen_string_literal: true
 
 class FavoritePlayersController < ApplicationController
+  before_action :set_favorite_player, only: [:show, :update, :destroy]
+
   # GET /favorite_players
   def index
     @favorite_players = FavoritePlayer.all
 
     render json: @favorite_players
+  end
+
+  # GET /favorite_players/1
+  def show
+    render json: @favorite_player
   end
 
   # POST /favorite_players
@@ -28,6 +35,11 @@ class FavoritePlayersController < ApplicationController
   #   t.string :sport
   #   t.string :position
   #   t.integer :player_number
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_favorite_player
+    @favorite_player = FavoritePlayer.find(params[:id])
+  end
 
   # Only allow a trusted parameter "white list" through.
   def favorite_player_params
