@@ -7,6 +7,6 @@
 #   t.string :position
 #   t.integer :player_number
 
-curl --include --request DELETE http://localhost:4741/favorite_players/3
+curl --include --request DELETE http://localhost:4741/favorite_players/10
 
 echo

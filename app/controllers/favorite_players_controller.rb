@@ -37,6 +37,11 @@ class FavoritePlayersController < ApplicationController
     end
   end
 
+  # DELETE /favorite_players/1
+  def destroy
+    @favorite_player.destroy
+  end
+
   private
 
   # favorite_players resource
