@@ -27,6 +27,16 @@ class FavoritePlayersController < ApplicationController
     end
   end
 
+  # PATCH/PUT /favorite_players/1
+  def update
+    if @favorite_player.update(favorite_player_params)
+      # render json: @favorite_player
+      head :no_content
+    else
+      render json: @favorite_player.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # favorite_players resource
