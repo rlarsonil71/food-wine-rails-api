@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   delete '/sign-out/:id' => 'users#signout'
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
+  get 'my-favorite-players' => 'favorite_players#my_favorite_players'
   resources :favorite_players, except: [:new, :edit]
 end

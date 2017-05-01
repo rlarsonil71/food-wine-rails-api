@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ExamplesController < OpenReadController
   before_action :set_example, only: [:update, :destroy]
 
@@ -20,6 +21,8 @@ class ExamplesController < OpenReadController
   # POST /examples
   # POST /examples.json
   def create
+    # We used to use `Example.new` in the past.
+    #  @example = Example.new(example_params)
     @example = current_user.examples.build(example_params)
 
     if @example.save
@@ -48,17 +51,21 @@ class ExamplesController < OpenReadController
   end
 
   def set_example
+    # We used to use `Example.find` in the past.
+    #  @example = Example.find(params[:id])
+
     @example = current_user.examples.find(params[:id])
+
     # If @example returns something you found an example for the current_user
-    # If @example returns a 404 Not Found then you didn't find it for
-    #   current_user
-    # WAS @example = Example.find(params[:id])
+    # If @example returns a 404 Not Found then you didn't find an example row
+    #  for the current_user
   end
 
   def example_params
-    # params.require(:example).permit(:text)
+    params.require(:example).permit(:text)
     # Use
-    params.require(:example).permit(:user_id, :sport: ....)
+    # params.require(:favorite_player).permit(:player_name, :team_name, :sport,
+    #                                         :position, :player_number)
   end
 
   private :set_example, :example_params
