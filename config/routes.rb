@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
   get 'my-favorite-players' => 'favorite_players#my_favorite_players'
+  get 'my-favorite-players/:id' => 'favorite_players#my_favorite_player'
   resources :favorite_players, except: [:new, :edit]
 end

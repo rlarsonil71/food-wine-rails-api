@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FavoritePlayersController < ProtectedController
-  before_action :set_favorite_player, only: [:show, :update, :destroy]
+  before_action :set_favorite_player, only: [:show, :update, :destroy, :my_favorite_player]
 
   # GET /favorite_players
   def index
@@ -16,9 +16,14 @@ class FavoritePlayersController < ProtectedController
     render json: current_user.favorite_players
   end
 
-  # GET /my_favorite_players/1
+  # GET /my_favorite_players
   def my_favorite_players
     render json: current_user.favorite_players
+  end
+
+  # GET /my_favorite_players/1
+  def my_favorite_player
+    render json: @favorite_player
   end
 
   # POST /favorite_players
@@ -76,10 +81,16 @@ class FavoritePlayersController < ProtectedController
     # @favorite_player = FavoritePlayer.find(params[:id])
     @favorite_player = current_user.favorite_players.find(params[:id])
 
-    # *** DEBUG ***
-    puts "(app/controllers/favorite_players_controller) Inside
-          set_favorite_player - favorite_player: #{@favorite_player}"
-    # *** DEBUG ***
+    # Test to make sure favorite_player is found
+    if @favorite_player
+      # *** DEBUG ***
+      puts "(app/controllers/favorite_players_controller) Inside
+            set_favorite_player - favorite_player: #{@favorite_player}"
+      # *** DEBUG ***
+    else
+      # If favorite_player is NOT found, return JSON error
+      render json: @favorite_player.errors, status: :unprocessable_entity
+    end
   end
 
   # Only allow a trusted parameter "white list" through.
