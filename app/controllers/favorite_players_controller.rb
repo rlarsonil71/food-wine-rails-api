@@ -32,10 +32,8 @@ class FavoritePlayersController < ProtectedController
     @favorite_player = current_user.favorite_players
                                    .build(favorite_player_params)
 
-    # *** DEBUG ***
-    puts "(app/controllers/favorite_players_controller) Inside create -
-          favorite_player: #{@favorite_player}"
-    # *** DEBUG ***
+    # puts "(app/controllers/favorite_players_controller) Inside create -
+    #       favorite_player: #{@favorite_player}"
 
     if @favorite_player.save
       render json: @favorite_player, status: :created,
@@ -47,10 +45,8 @@ class FavoritePlayersController < ProtectedController
 
   # PATCH/PUT /favorite_players/1
   def update
-    # *** DEBUG ***
-    puts "(app/controllers/favorite_players_controller) Inside update -
-           favorite_player: #{@favorite_player}"
-    # *** DEBUG ***
+    # puts "(app/controllers/favorite_players_controller) Inside update -
+    #        favorite_player: #{@favorite_player}"
 
     if @favorite_player.update(favorite_player_params)
       # render json: @favorite_player
@@ -83,10 +79,9 @@ class FavoritePlayersController < ProtectedController
 
     # Test to make sure favorite_player is found
     if @favorite_player
-      # *** DEBUG ***
-      puts "(app/controllers/favorite_players_controller) Inside
-            set_favorite_player - favorite_player: #{@favorite_player}"
-      # *** DEBUG ***
+      # puts "(app/controllers/favorite_players_controller) Inside
+      #       set_favorite_player - favorite_player: #{@favorite_player}"
+
     else
       # If favorite_player is NOT found, return JSON error
       render json: @favorite_player.errors, status: :unprocessable_entity

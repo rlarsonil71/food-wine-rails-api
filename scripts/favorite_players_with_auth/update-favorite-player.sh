@@ -19,7 +19,7 @@ curl --include --request PATCH http://localhost:4741/favorite_players/${ID} \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
-    "favorite_player": {
+    "player_info": {
       "player_name": "Derek Jeter PATCH",
       "team_name": "New York Yankees PATCH",
       "sport": "baseball PATCH",
@@ -33,7 +33,7 @@ curl --include --request PATCH http://localhost:4741/favorite_players/${ID} \
 #   --header "Content-Type: application/json" \
 #   --header "Authorization: Token token=$TOKEN" \
 #   --data '{
-#     "favorite_player": {
+#     "player_info": {
 #       "player_name": "Matt Holliday PATCH",
 #       "team_name": "New York Yankees",
 #       "sport": "baseball",
@@ -47,7 +47,7 @@ curl --include --request PATCH http://localhost:4741/favorite_players/${ID} \
 #   --header "Content-Type: application/json" \
 #   --header "Authorization: Token token=$TOKEN" \
 #   --data '{
-#     "favorite_player": {
+#     "player_info": {
 #       "player_name": "Derek Jeter",
 #       "team_name": "New York Yankees",
 #       "sport": "baseball",
