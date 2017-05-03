@@ -16,17 +16,16 @@ actions.
 
 ## Heroku API URL
 
--   [`URL`](ttps://hidden-cliffs-39330.herokuapp.com/)
+-   [`Heroku API URL`](https://hidden-cliffs-39330.herokuapp.com/)
 
 ## GitHub Application Repositories
 
 -   [`Front-End Client`](https://github.com/rlarsonil71/food-wine-rails-client)
 -   [`Back-End API`](https://github.com/rlarsonil71/food-wine-rails-api)
 
-## Front-End Dependencies
+## Front-End Client Application URL
 
--   [`favorite-players-client`](https://github.com/rlarsonil71/food-wine-rails-client)
--   [`URL`](https://rlarsonil71.github.io/food-wine-rails-client/)
+-   [`Client URL`](https://rlarsonil71.github.io/food-wine-rails-client/)
 
 ## Project Requirements
 
